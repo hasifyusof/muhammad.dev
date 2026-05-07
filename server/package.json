@@ -1,0 +1,15 @@
+{
+    "name": "muhammad.dev-server",
+    "version": "1.0.0",
+    "description": "A simple server for muhammad.dev",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "Muhammad",
+    "license": "MIT",
+    "dependencies": {
+        "cors": "^2.8.6",
+        "express": "^4.22.1"
+    }
+}
