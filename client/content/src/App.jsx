@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
-import axios from "axios";
+import apiClient from "./api/client";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./components/NotFound";
-
-axios.defaults.withCredentials = true;
 
 function App() {
 
@@ -20,7 +18,7 @@ function App() {
     const fetchUser = async () => {
 
       try {
-        const res = await axios.get("/api/auth/me", { withCredentials: true, timeout: 5000 })
+        const res = await apiClient.get("/auth/me", { timeout: 5000 })
         setUser(res.data);
       } catch(err) {
         setUser(null);

@@ -1,13 +1,13 @@
 import React from "react";
 import { Link , useNavigate} from "react-router-dom";
-import axios from "axios";
+import apiClient from "../api/client";
 
 const Navbar = ({ user, setUser }) => {
 
     const navigate = useNavigate();
 
     const handlelogout = async () =>{
-        await axios.post("/api/auth/logout");
+        await apiClient.post("/auth/logout");
         setUser(null);
         navigate("/");
     }
