@@ -17,7 +17,7 @@ export const Register = ({ setUser }) => {
         e.preventDefault();
         try {
             const res = await apiClient.post("/auth/register", form);
-            setUser(res.data);
+            setUser(res.data.user);
             navigate('/');
         } catch(err) {
             setError('Registration failed');
