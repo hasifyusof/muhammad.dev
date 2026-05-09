@@ -18,6 +18,11 @@ app.use(cookieParser());
 
 app.use('/api/auth', authRoutes);
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', environment: process.env.NODE_ENV || 'development' });
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
