@@ -1,7 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import App from './App.jsx'
+import './styles/index.css'
+import { colors } from './styles/constants.js'
+
+const rootElement = document.documentElement
+Object.entries(colors).forEach(([name, value]) => {
+  rootElement.style.setProperty(`--color-${name}`, value)
+})
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
