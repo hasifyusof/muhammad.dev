@@ -9,7 +9,8 @@ const router = express.Router();
 const cookieStore = {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    sameSite: 'none',
+    path: '/',
     maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
 }
 
@@ -92,7 +93,7 @@ router.get('/me', protect, async (req, res) => {
 
 //Logout user
 router.post('/logout', (req, res) => {
-    res.clearCookie('token',"",{...cookieStore, maxAge: 1});
+    res.clearCookie('token', { ...cookieStore, maxAge: 1 });
     res.status(200).json({ message: 'Logout successful' });
 });
 
