@@ -18,7 +18,7 @@ function App() {
     const fetchUser = async () => {
 
       try {
-        const res = await apiClient.get("/auth/me", { timeout: 5000 })
+        const res = await apiClient.get("/api/auth/me", { timeout: 5000 })
         setUser(res.data);
       } catch(err) {
         setUser(null);

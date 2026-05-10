@@ -15,7 +15,7 @@ export const Login = ({ setUser }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await apiClient.post("/auth/login", form);
+            const res = await apiClient.post("/api/auth/login", form);
             setUser(res.data);
             navigate('/');
         } catch(err) {
