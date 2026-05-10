@@ -6,10 +6,12 @@ import { protect } from '../middleware/auth.js';
 
 const router = express.Router();
 
+const isSecureCookie = process.env.NODE_ENV === 'production' || (process.env.CLIENT_URL && process.env.CLIENT_URL.startsWith('https'));
+
 const cookieStore = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'none',
+    secure: isSecureCookie,
+    sameSite: isSecureCookie ? 'none' : 'lax',
     path: '/',
     maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
 }
