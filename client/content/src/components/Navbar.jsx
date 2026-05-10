@@ -7,7 +7,7 @@ const Navbar = ({ user, setUser }) => {
     const navigate = useNavigate();
 
     const handlelogout = async () =>{
-        await apiClient.post("/auth/logout");
+        await apiClient.post("/api/auth/logout");
         setUser(null);
         navigate("/");
     }
